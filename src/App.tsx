@@ -4,7 +4,7 @@ import axios, { Canceler } from 'axios'
 import './App.scss'
 import logo from './assets/imgs/logo.png'
 
-interface Iresopnse {
+interface IResopnse {
   data: {
     code: number
     name: string
@@ -60,7 +60,7 @@ function App() {
       if (testQQ.test(e.target.value)) {
         setLoading(true)
         handleCancleQuery()
-        const res: Iresopnse = await axios.get(
+        const res: IResopnse = await axios.get(
           'https://api.uomg.com/api/qq.info',
           {
             params: { qq: e.target.value.trim() },
