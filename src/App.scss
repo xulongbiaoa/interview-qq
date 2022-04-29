@@ -1,0 +1,142 @@
+.App {
+  text-align: center;
+  .qq {
+    &-input {
+      margin-left: 20px;
+      margin-bottom: 20px;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      outline: none;
+      &:focus {
+        border-color: #009ef3;
+      }
+    }
+    &-card {
+      width: 220px;
+      margin: 0 auto;
+      padding-left: 10px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border-radius: 20px;
+      text-align: left;
+      border: 1px solid #000;
+      &-img {
+        width: 50px;
+        height: 50px;
+        margin-right: 20px;
+        vertical-align: top;
+        border-radius: 50px;
+      }
+      &-des {
+        display: inline-block;
+      }
+    }
+    &-error {
+      color: red;
+    }
+    &-loading{
+      &-cancleQuery{
+        color: #009ef3  ;
+        cursor: pointer;
+      }
+    }
+    &-reset{
+      position: relative;
+      left:-20px;
+      display: inline-block;
+      line-height:20px;
+      width:20px;
+      height:20px;
+      border-radius:10px;
+      background-color: gray;
+      color: #fff;
+      cursor: pointer;
+      &:hover{
+        background-color: #009ef3;
+      }
+      &.hidden{
+        visibility: hidden;
+      }
+    }
+   
+    
+  }
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+
+
+.circular {
+  animation: rotate 2s linear infinite;
+  height:50px;
+  width: 50px;
+}
+
+.path {
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  animation: dash 1.5s ease-in-out infinite;
+  stroke-linecap: round;
+  stroke:#0057e7
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px;
+  }
+}
+
+
+
