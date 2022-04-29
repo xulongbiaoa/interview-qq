@@ -88,7 +88,7 @@ function App() {
         if((err as any)?.message==='cancel'){
           return 
         }
-        setError('请求错误，请稍微再试')
+        setError('请求错误，请稍后再试')
       }
       setLoading(false)
      
