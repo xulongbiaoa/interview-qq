@@ -21,6 +21,9 @@ interface ICard {
 
 const QCard: React.FC<ICard> = ({ name, qq, qlogo }) => {
   const turnStr = (str: string, length: number) => {
+    if(str===null){
+      return '-'
+    }
     if (str.length > length) {
       return (
         str.slice(0, Math.ceil(length / 2)) +
@@ -28,13 +31,13 @@ const QCard: React.FC<ICard> = ({ name, qq, qlogo }) => {
         str.slice(-(length - Math.ceil(length / 2)))
       )
     }
-    return str
+    return str?.trim()|| '-'
   }
   return (
     <div className="qq-card">
       <img className="qq-card-img" src={qlogo || logo} alt="loading" />
       <div className="qq-card-des">
-        <div>{turnStr(name || '-', 5)}</div>
+        <div>{turnStr(name , 5)}</div>
         <div>{qq || '-'}</div>
       </div>
     </div>
