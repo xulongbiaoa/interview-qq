@@ -116,6 +116,7 @@ function App() {
           type="text"
           onChange={handleChange}
           onInput={handleInput}
+          placeholder="输入qq号，自动查询"
         />
         <span className={`qq-reset ${qValue.trim().length>0?"":"hidden"}`} onClick={handleReset}>
           X
