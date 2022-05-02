@@ -50,6 +50,7 @@ function App() {
   const [userInfo, setUserInfo] = useState<ICard | null>(null)
   let lastRequestToken = useRef<null | Canceler>(null)
   const handleCancleQuery = () => {
+    setLoading(false)
     if (lastRequestToken.current) {
       lastRequestToken.current('cancel')
     }
