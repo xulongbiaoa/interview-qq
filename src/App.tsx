@@ -49,11 +49,12 @@ function App() {
   const [error, setError] = useState<undefined | string>(undefined)
   const [userInfo, setUserInfo] = useState<ICard | null>(null)
   let lastRequestToken = useRef<null | Canceler>(null)
-  const handleCancleQuery = () => {
-    setLoading(false)
+  const handleCancleQuery = (closeLoading?:boolean) => {
+    
     if (lastRequestToken.current) {
       lastRequestToken.current('cancel')
     }
+    closeLoading&&setLoading(false)
   }
   const handleInput = debounce(async (e: ChangeEvent<HTMLInputElement>) => {
     try {
@@ -138,7 +139,7 @@ function App() {
                 strokeMiterlimit="10"
               />
             </svg>
-            <div className="qq-loading-cancleQuery" onClick={handleCancleQuery}>
+            <div className="qq-loading-cancleQuery" onClick={()=>handleCancleQuery(true)}>
               取消
             </div>
           </div>
