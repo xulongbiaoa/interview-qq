@@ -1,18 +1,10 @@
-import React, { ChangeEvent, useRef, useState } from 'react'
+import React, { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react'
 import { debounce } from 'lodash'
 import axios, { Canceler } from 'axios'
 import './App.scss'
 import logo from './assets/imgs/logo.png'
 
-interface IResopnse {
-  data: {
-    code: number
-    name: string
-    qlogo: string
-    qq: string
-    msg?: string
-  }
-}
+
 interface ICard {
   name: string
   qq: string
@@ -21,7 +13,7 @@ interface ICard {
 
 const QCard: React.FC<ICard> = ({ name, qq, qlogo }) => {
   const turnStr = (str: string, length: number) => {
-    if(str===null){
+    if (str === null) {
       return '-'
     }
     if (str.length > length) {
@@ -31,13 +23,13 @@ const QCard: React.FC<ICard> = ({ name, qq, qlogo }) => {
         str.slice(-(length - Math.ceil(length / 2)))
       )
     }
-    return str?.trim()|| '-'
+    return str?.trim() || '-'
   }
   return (
     <div className="qq-card">
       <img className="qq-card-img" src={qlogo || logo} alt="loading" />
       <div className="qq-card-des">
-        <div>{turnStr(name , 5)}</div>
+        <div>{turnStr(name, 5)}</div>
         <div>{qq || '-'}</div>
       </div>
     </div>
@@ -49,66 +41,71 @@ function App() {
   const [error, setError] = useState<undefined | string>(undefined)
   const [userInfo, setUserInfo] = useState<ICard | null>(null)
   let lastRequestToken = useRef<null | Canceler>(null)
-  const handleCancleQuery = (closeLoading?:boolean) => {
-    
+  const handleCancleQuery = (closeLoading?: boolean) => {
     if (lastRequestToken.current) {
       lastRequestToken.current('cancel')
     }
-    closeLoading&&setLoading(false)
+    closeLoading && setLoading(false)
   }
-  const handleInput = debounce(async (e: ChangeEvent<HTMLInputElement>) => {
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setQValue(e.target.value)
+  }
+  const handleSearch=useCallback( debounce((qValue:string)=>{
+
     try {
       const testQQ = /^[1-9][0-9]{4,12}$/
-    
+
       setError(undefined)
       setUserInfo(null)
-      if (testQQ.test(e.target.value)) {
+      handleCancleQuery()
+      if (testQQ.test(qValue)) {
         setLoading(true)
-        handleCancleQuery()
-        const res: IResopnse = await axios.get(
-          'https://api.uomg.com/api/qq.info',
-          {
-            params: { qq: e.target.value.trim() },
+       
+        axios
+          .get('https://api.uomg.com/api/qq.info', {
+            params: { qq: qValue.trim() },
             cancelToken: new axios.CancelToken((c: Canceler) => {
               lastRequestToken.current = c
             }),
-          }
-        )
-        if (res.data.code === 1) {
-          const { name, qq, qlogo } = res.data
-          setUserInfo({ name, qq, qlogo })
-        } else {
-          if (res.data.msg) {
-            throw res.data.msg
-          }
-        }
-        setLoading(false)
+          })
+          .then((res) => {
+            if (res.data.code === 1) {
+              const { name, qq, qlogo } = res.data
+              setUserInfo({ name, qq, qlogo })
+            } else {
+              if (res.data.msg) {
+                throw res.data.msg
+              }
+            }
+            setLoading(false)
+          }).catch(err=>{})
+
+      
       }
     } catch (err) {
       if (typeof err === 'string') {
         setError(err as string)
-      }
-      else if(typeof err === 'object'){
-       
-        if((err as any)?.message==='cancel'){
-          return 
+      } else if (typeof err === 'object') {
+        if ((err as any)?.message === 'cancel') {
+          return
         }
         setError('请求错误，请稍后再试')
       }
       setLoading(false)
-     
     }
-  }, 300)
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setQValue(e.target.value)
-  }
+  },500),[])
+  useEffect(() => {
+    handleSearch(qValue)
+  }, [handleSearch,qValue])
+
   const handleReset = () => {
     handleCancleQuery()
     setQValue('')
     setUserInfo(null)
     setError('')
   }
- 
+
   return (
     <div className="App">
       <div className="qq">
@@ -120,10 +117,13 @@ function App() {
           maxLength={12}
           type="text"
           onChange={handleChange}
-          onInput={handleInput}
+       
           placeholder="输入qq号，自动查询"
         />
-        <span className={`qq-reset ${qValue.trim().length>0?"":"hidden"}`} onClick={handleReset}>
+        <span
+          className={`qq-reset ${qValue.trim().length > 0 ? '' : 'hidden'}`}
+          onClick={handleReset}
+        >
           X
         </span>
         {loading === true && (
@@ -139,7 +139,10 @@ function App() {
                 strokeMiterlimit="10"
               />
             </svg>
-            <div className="qq-loading-cancleQuery" onClick={()=>handleCancleQuery(true)}>
+            <div
+              className="qq-loading-cancleQuery"
+              onClick={() => handleCancleQuery(true)}
+            >
               取消
             </div>
           </div>
