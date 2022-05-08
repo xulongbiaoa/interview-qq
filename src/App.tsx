@@ -40,7 +40,7 @@ function App() {
   const [qValue, setQValue] = useState('')
   const [error, setError] = useState<undefined | string>(undefined)
   const [userInfo, setUserInfo] = useState<ICard | null>(null)
-  let lastRequestToken = useRef<null | Canceler>(null)
+  const lastRequestToken = useRef<null | Canceler>(null)
   const handleCancleQuery = (closeLoading?: boolean) => {
     if (lastRequestToken.current) {
       lastRequestToken.current('cancel')
@@ -79,7 +79,7 @@ function App() {
               }
             }
             setLoading(false)
-          }).catch(err=>{})
+          }).catch()
 
       
       }
