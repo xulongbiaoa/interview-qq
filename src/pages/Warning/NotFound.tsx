@@ -1,17 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import styles from './index.module.scss';
 
 
-export default class NotFound extends Component {
-  render() {
-    return (
-      <div className={`${styles.notFound} warning-page text-center`}>
+const NotFound: React.FC = () => {
 
-        <p>
-          <span className={styles.title}>404</span>
-        </p>
-      </div>
-    );
-  }
+  return (
+    <div className={`${styles.notFound} warning-page text-center`}>
+
+      <p>
+        <span className={styles.title}>404</span>
+      </p>
+    </div>
+  );
+
 }
+export default NotFound

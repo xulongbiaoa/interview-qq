@@ -3,19 +3,16 @@ import { useContext } from 'react';
 
 import { createContext } from 'react';
 import { useState } from 'react';
-import MetaTags from 'react-meta-tags';
+;
 interface IContext {
   title: string,
-  setTitle?: (title: string) => void
+  setTitle: (title: string) => void
 }
-const TitleContext = createContext<IContext>({ title: "" })
-export const TitleProvider: React.FC<any> = ({ children }) => {
+const TitleContext = createContext<IContext>({ title: "", setTitle: () => { console.log("ready") } });
+export const TitleProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [title, setTitle] = useState('')
 
   return <TitleContext.Provider value={{ title, setTitle }}>
-    <MetaTags>
-      <title>{title}</title>
-    </MetaTags>
     {children}
   </TitleContext.Provider>
 

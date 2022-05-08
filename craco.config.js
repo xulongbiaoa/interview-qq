@@ -1,6 +1,7 @@
 const path = require('path');
 const CracoLessPlugin = require('craco-less');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
 const {
   when,
   whenDev,
@@ -21,17 +22,6 @@ module.exports = {
         },
       ],
     ],
-  },
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, 'src'),
-      '@components': path.resolve(__dirname, 'src/components'),
-      '@icons': path.resolve(__dirname, 'src/icons'),
-      '@images': path.resolve(__dirname, 'src/images'),
-      '@pages': path.resolve(__dirname, 'src/pages'),
-      '@styles': path.resolve(__dirname, 'src/styles'),
-      '@utils': path.resolve(__dirname, 'src/utils'),
-    },
   },
   webpack: {
     configure: (webpackConfig) => {
@@ -90,5 +80,6 @@ module.exports = {
         },
       },
     },
+    { plugin: new AntdDayjsWebpackPlugin() },
   ],
 };

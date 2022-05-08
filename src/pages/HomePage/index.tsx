@@ -3,8 +3,6 @@ import { debounce } from 'lodash';
 import axios, { Canceler } from 'axios';
 import { Button } from 'antd'
 
-import { useTitle } from 'component/Title';
-
 interface ICard {
   name: string
   qq: string
@@ -104,8 +102,6 @@ const HomePage: React.FC = () => {
     setUserInfo(null)
     setError('')
   }
-  const { setTitle } = useTitle()
-  useEffect(() => { setTitle?.('首页') }, [])
 
 
   return <div className="qq">

@@ -29,11 +29,13 @@ module.exports = {
     'jsx-a11y/anchor-is-valid': 'off',
     'no-script-url': 'off',
     'no-unused-vars': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
   },
   ignorePatterns: [
     'public/**/*.js',
     'craco.config.js',
     'scripts/**/*',
     'src/icons/svg/*.svg',
+    'tsconfig.json',
   ],
 };
