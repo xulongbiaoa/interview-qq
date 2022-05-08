@@ -1,0 +1,35 @@
+.svg-icon {
+  fill: currentColor;
+  overflow: hidden;
+  width: 1em;
+  height: 1em;
+  // vertical-align: -0.15em;
+  &.xxs {
+    font-size: 12px;
+  }
+  &.xs {
+    font-size: 14px;
+  }
+  &.sm {
+    font-size: 16px;
+  }
+  &.md {
+    font-size: 24px;
+  }
+  &.lg {
+    font-size: 32px;
+  }
+  &.xlg {
+    font-size: 48px;
+  }
+  &.menuArrow{
+    font-size: 10px;
+  }
+  &.clickable {
+    cursor: pointer;
+    transition: color 0.3s ease;
+    &:hover {
+      color: #1A7EE3 !important;
+    }
+  }
+}

@@ -1,0 +1,93 @@
+// Color
+$primary-color: #3c78c2;
+$secondary-color: #7799BB;
+$page-color: #e6e9ee;
+$line-color: #e6e9ee;
+$link-color: #0A66C2;
+$link-hover-color: lighten($primary-color, 10%);
+$active-color: lighten($primary-color, 10%);
+
+// Text Color
+$text-color-default: #222549;
+$text-color-primary: #222549;
+$text-color-secondary: #8EA6BF;
+$text-color-tertiary: #999;
+$text-color-disable: rgba(0, 0, 0, 0.25);
+$text-color-active: #1070D0;
+
+// Status Color
+$success-color: #0BB168;
+$warning-color: #faad14;
+$error-color: #F24646;
+$important-color: #CC3300; // 重要提醒
+$increase-color: #F24646; // 增长
+$decline-color: #0BB168; // 下降
+
+$disable-color: rgba(0, 0, 0, 0.25);
+
+// Component Color
+$chunk-color: #F3F4F7; // 块颜色
+$card-header-bg: #F3F4F7;
+$list-hover-bg: #F3F4F7;
+
+// Dimension
+$layout-width: 1200px;
+
+$dimension-xxlg: 40px;
+$dimension-xlg: 32px;
+$dimension-lg: 24px;
+$dimension-md: 16px;
+$dimension-sm: 8px;
+$dimension-xs: 4px;
+$dimension-xxs: 2px;
+
+$padding-xlg: $dimension-xlg;
+$padding-lg: $dimension-lg;
+$padding-md: $dimension-md;
+$padding-sm: $dimension-sm;
+
+$margin-xlg: $dimension-xlg;
+$margin-lg: $dimension-lg;
+$margin-md: $dimension-md;
+$margin-sm: $dimension-sm;
+
+$border-radius-base: 4px;
+$border-radius-sm: 2px;
+
+// Component Size
+$card-header-height: 40px;
+$card-header-height-sm: 32px;
+$card-padding: 8px;
+$card-padding-sm: 6px;
+$card-padding-lg: 16px;
+
+$modal-header-height: 56px;
+$modal-footer-height: 80px;
+$modal-padding-left: 24px;
+$modal-padding-right: 16px;
+
+// Font Size
+$font-size-base: 14px;
+
+// $font-size-xlg: $font-size-base + 6px;
+// $font-size-lg: $font-size-base + 2px;
+$font-size-lg: $font-size-base + 2px;
+$font-size-xlg: $font-size-base + 4px;
+$font-size-xxlg: $font-size-base + 6px;
+$font-size-sm: 12px;
+$font-size-xs: 10px;
+
+// Icon Size
+$icon-size: 16px;
+$icon-size-lg: 24px;
+$icon-size-xlg: 36px;
+
+// ZIndex
+$zindex-header: 1000;
+
+$common-font-family: Helvetica Neue, Tahoma, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica, Arial, sans-serif, Roboto, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+
+// Transition
+$transition-ease-in: all 0.3s cubic-bezier(0.4, 0, 1, 1);
+$transition-ease-out: all 0.3s cubic-bezier(0, 0, 0.2, 1);
+$transition-ease-in-out: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);

@@ -9,7 +9,7 @@ module.exports = {
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
-    'prettier'
+    'prettier',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -19,6 +19,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
+
   plugins: ['react', '@typescript-eslint'],
   rules: {
     // ESLint plugin for prettier formatting
@@ -28,7 +29,11 @@ module.exports = {
     'jsx-a11y/anchor-is-valid': 'off',
     'no-script-url': 'off',
     'no-unused-vars': 'off',
-  
   },
-  ignorePatterns: ['public/**/*.js','craco.config.js'],
-}
+  ignorePatterns: [
+    'public/**/*.js',
+    'craco.config.js',
+    'scripts/**/*',
+    'src/icons/svg/*.svg',
+  ],
+};

@@ -1,0 +1,568 @@
+@import "./variable";
+
+// 基本 Tag
+html,
+body {
+    font-size: 14px;
+    line-height: 1.5;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #E9F4FE 0%, rgba(233, 244, 254, 0.99) 25%, rgba(255, 255, 255, 0) 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 480px;
+    background-color: #F6F9FC;
+    min-width: 1280px;
+
+    #root {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+}
+
+h1 {
+    font-size: $font-size-xxlg;
+}
+
+h2 {
+    font-size: $font-size-lg;
+}
+
+h3 {
+    font-size: $font-size-base;
+}
+
+a {
+    text-decoration: none;
+}
+
+input:invalid {
+    box-shadow: none;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.flex-1 {
+    flex: 1 1 0%;
+}
+
+.flex-2 {
+    flex: 2;
+}
+
+.inline-flex {
+    display: inline-flex;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.items-start {
+    align-items: flex-start;
+}
+
+.items-baseline {
+    align-items: baseline;
+}
+
+.items-end {
+    align-items: flex-end;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+// 超链接
+.link,
+.btn-link,
+.link a {
+    &,
+    &:visited {
+        color: $link-color;
+        cursor: pointer;
+    }
+
+    &.link-white {
+        color: #fff;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &:hover {
+        color: $link-color;
+        text-decoration: underline;
+    }
+}
+
+.btn-link {
+    border: 0;
+    background: inherit;
+}
+
+.pure-link {
+    color: $link-color;
+    cursor: pointer;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.pointer-cursor {
+    cursor: pointer;
+}
+
+// Margin 大小
+.margin-top-xxlg {
+    margin-top: $dimension-xxlg;
+}
+
+.margin-top-xlg {
+    margin-top: $dimension-xlg;
+}
+
+.margin-top-lg {
+    margin-top: $dimension-lg;
+}
+
+.margin-top-md {
+    margin-top: $dimension-md;
+}
+
+.margin-top-sm {
+    margin-top: $dimension-sm;
+}
+
+.margin-bottom-xlg {
+    margin-bottom: $dimension-xlg;
+}
+
+.margin-bottom-lg {
+    margin-bottom: $dimension-lg;
+}
+
+.margin-bottom-md {
+    margin-bottom: $dimension-md;
+}
+
+.margin-bottom-sm {
+    margin-bottom: $dimension-sm;
+}
+
+.margin-left-xlg {
+    margin-left: $dimension-lg;
+}
+
+.margin-left-lg {
+    margin-left: $dimension-lg;
+}
+
+.margin-left-md {
+    margin-left: $dimension-md;
+}
+
+.margin-left-sm {
+    margin-left: $dimension-sm;
+}
+
+.margin-left-xs {
+    margin-left: $dimension-xs;
+}
+
+.margin-right-xlg {
+    margin-right: $dimension-xlg;
+}
+
+.margin-right-lg {
+    margin-right: $dimension-lg;
+}
+
+.margin-right-md {
+    margin-right: $dimension-md;
+}
+
+.margin-right-sm {
+    margin-right: $dimension-sm;
+}
+
+.padding-left-lg {
+    padding-left: $dimension-lg;
+}
+
+.padding-left-md {
+    padding-left: $dimension-md;
+}
+
+.padding-left-sm {
+    padding-left: $dimension-sm;
+}
+
+.padding-top-xs {
+    padding-top: $dimension-xs;
+}
+
+.padding-top-xxs {
+    padding-top: $dimension-xxs;
+}
+
+// width 、 height 100%
+.height100 {
+    height: 100%;
+}
+
+.width100 {
+    width: 100%;
+}
+
+// Text Align
+.text-center {
+    text-align: center;
+}
+
+// line height
+.line-height-1 {
+    line-height: 1rem;
+}
+
+// 文字颜色
+// 主要文本颜色
+.primary-text {
+    color: $text-color-primary;
+}
+
+//次重要文本 如：表单标签、单位
+.secondary-text {
+    color: $text-color-secondary;
+}
+
+// 不重要的备注
+.tertiary-text {
+    color: $text-color-tertiary;
+}
+
+// 不重要的备注、提醒等
+.minor-text {
+    color: #999; //$text-color-secondary;
+    font-size: 13px;
+}
+
+//醒目文本
+.success-text {
+    color: $success-color;
+}
+
+.warning-text {
+    color: $warning-color;
+}
+
+.error-text {
+    color: $error-color;
+}
+
+.error-text-minor {
+    color: #EC6E6E;
+}
+
+.important-text {
+    color: $important-color;
+}
+
+.increase-text {
+    color: $increase-color;
+}
+
+.decline-text {
+    color: $decline-color;
+}
+
+.disable-text {
+    color: $disable-color !important;
+    text-decoration: none !important;
+}
+
+.tip-text {
+    color: $text-color-secondary;
+}
+
+.statement-text {
+    color: #333;
+    line-height: 24px;
+    white-space: break-spaces;
+    word-break: break-word;
+    word-spacing: 1.1px;
+}
+
+//必输项
+.required-text {
+    color: $error-color;
+}
+
+.required-tip {
+    font-size: 12px;
+}
+
+// 纠正1像素对齐
+.vertical-correct {
+    position: relative;
+    top: 1px;
+}
+
+// .remark{
+//   font-size: 12px;
+//   color:$text-color-secondary;
+// }
+
+// 提醒、警示内容
+.caution {
+    border: 1px solid lighten(#eca516, 5%);
+    padding: $padding-sm;
+    font-size: $font-size-sm;
+    background-color: rgba(252, 210, 126, 0.1);
+    color: #eca516;
+
+    &.show-icon {
+        padding-left: 30px;
+        background: "" left 8px top 8px no-repeat;
+        background-size: 15px 15px;
+        background-color: rgba(252, 210, 126, 0.1);
+    }
+}
+
+// 固定最大宽度 Layout
+.view-width {
+    max-width: $layout-width;
+    width: $layout-width;
+    margin: 0 auto;
+}
+
+// 最大宽度
+.container-fluid {
+    width: 100%;
+    margin: 0 auto;
+}
+
+// 等宽字体
+.monospace {
+    font-family: Monaco, 'Droid Sans Mono', Menlo, Consolas, 'Courier New', monospace !important;
+}
+
+// 等宽字体
+.normal-font-family {
+    font-family: $common-font-family;
+}
+
+//分割线
+.line {
+    width: 100%;
+    height: 1px;
+    background-color: $line-color;
+    margin: $margin-md 0;
+}
+
+// 相对定位
+.relative {
+    position: relative;
+}
+
+// 绝对定位
+.absolute {
+    position: absolute;
+}
+
+//#region remove left/right padding
+.nopadding-sides {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+// tooltip 中的内容居中对齐
+.tooltip-center-content {
+    min-width: fit-content !important;
+
+    .ant-tooltip-inner {
+        text-align: center;
+    }
+}
+
+.ant-table-thead > tr > th,
+.ant-table-tbody > tr > td {
+    &.smpadding-sides {
+        padding-left: 6px;
+        padding-right: 6px;
+    }
+
+    &.nopadding-sides {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    &.nopadding-left {
+        padding-left: 0;
+    }
+
+    &.nopadding-right {
+        padding-right: 0;
+    }
+}
+
+.nopadding-left {
+    padding-left: 0;
+}
+
+.nopadding-right {
+    padding-right: 0;
+}
+
+// 文字间的左右间距
+.gap {
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.gap-r {
+    margin-right: 4px;
+}
+
+.gap-l {
+    margin-left: 4px;
+}
+
+//#endregion
+
+// 文字是否折行
+// 不折行
+.nowrap {
+    white-space: nowrap;
+}
+
+.word-keep {
+    word-break: keep-all;
+}
+
+// 折行
+.word-break {
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+// 字体大小
+.font-sm {
+    font-size: $font-size-sm;
+}
+
+.font-lg {
+    font-size: $font-size-lg;
+}
+
+.font-xlg {
+    font-size: $font-size-xlg;
+}
+
+.font-xxlg {
+    font-size: $font-size-xxlg;
+}
+
+.font-bold {
+    font-weight: 500;
+}
+
+// 长度缩略
+.cell-text-ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+// 隐藏
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.visible {
+    visibility: visible;
+}
+
+.delete-text-btn {
+    color: $error-color;
+
+    &:hover {
+        color: lighten($color: $error-color, $amount: 5);
+    }
+}
+
+.edit-text-btn {
+    color: $primary-color;
+}
+
+.link-text-btn {
+    color: $primary-color;
+}
+
+//#region icon
+@mixin iconFrg($size, $bgUrl, $bgX, $bgY) {
+    display: inline-block;
+    width: $size;
+    height: $size;
+    vertical-align: middle;
+    background: url($bgUrl) no-repeat $bgX $bgY;
+}
+
+.coin-logo {
+    width: 24px;
+    height: 24px;
+    margin-right: $margin-sm;
+    vertical-align: -6px;
+}
+
+.icon-info-dcr {
+    margin-left: 8px;
+    width: $icon-size;
+    height: $icon-size;
+    color: rgba($color: #ffff, $alpha: 0.25);
+
+    &:hover {
+        color: #fff;
+    }
+}
