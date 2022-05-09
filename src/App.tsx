@@ -11,7 +11,7 @@ import {
 } from 'react-router-dom';
 import './styles/main.scss';
 import './App.scss';
-import zhCN from 'antd/lib/locale/zh_CN';
+
 import { LOCALES_MAP } from 'common/config/localeConfig';
 export const context = createContext({})
 
