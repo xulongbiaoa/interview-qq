@@ -5,7 +5,7 @@ import { Layout } from 'antd'
 const LayoutWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return <Layout  >
     <Header />
-    <Layout.Content>Content</Layout.Content>
+    <Layout.Content>自动部署</Layout.Content>
     {children}
     <Footer />
   </Layout>
