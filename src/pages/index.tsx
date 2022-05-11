@@ -3,7 +3,7 @@ const routes = [
     path: '/',
     name: 'Home',
     exact: true,
-    page: '@/pages/HomePage',
+    page: '@/pages/Home',
     requiresAuth: false,
     component: () => import(/* webpackChunkName:'homePage' */ './HomePage'),
   },
@@ -11,7 +11,7 @@ const routes = [
     path: '/home',
     name: 'Home',
     exact: true,
-    page: '@/pages/HomePage',
+    page: '@/pages/Home',
     component: () => import(/* webpackChunkName:'homePage' */ './HomePage'),
   },
 ];

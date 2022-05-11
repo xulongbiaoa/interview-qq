@@ -9,6 +9,7 @@ const {
   loaderByName,
 } = require('@craco/craco');
 const CopyPlugin = require('copy-webpack-plugin');
+
 module.exports = {
   babel: {
     plugins: [
@@ -22,6 +23,17 @@ module.exports = {
         },
       ],
     ],
+  },
+  devServer: {
+    port: 3000,
+    proxy: {
+      '/api': {
+        target:
+          'https://www.fastmock.site/mock/8d575a5d350ca45748f7362780866668/jw',
+
+        changeOrigin: true,
+      },
+    },
   },
   webpack: {
     configure: (webpackConfig) => {
@@ -41,6 +53,7 @@ module.exports = {
 
       return webpackConfig;
     },
+
     plugins: [
       ...whenDev(
         () => [
@@ -53,7 +66,7 @@ module.exports = {
             ],
           }),
         ],
-        [process.env.ANALYZER ? new BundleAnalyzerPlugin() : ''],
+        [process && process.env.ANALYZER ? new BundleAnalyzerPlugin() : ''],
       ),
     ],
   },
