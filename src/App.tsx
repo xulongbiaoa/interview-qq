@@ -30,7 +30,7 @@ function App() {
     <Suspense fallback="">
       <TitleProvider>
         <div className="App">
-          <ConfigProvider locale={LOCALES_MAP[i18n.language].antdLocale}>
+          <ConfigProvider locale={LOCALES_MAP[i18n.language]?.antdLocale}>
             <Layout>
               <Switch>
                 {routes.map((route) => {

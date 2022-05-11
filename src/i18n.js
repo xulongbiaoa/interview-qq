@@ -1,9 +1,12 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
-import { getDefaultLang } from 'common/utils/lang';
+// import { getDefaultLang } from 'common/utils/lang';
+
 import en from 'i18n/locales/en';
+
 import zhCN from 'i18n/locales/zh-CN';
+
 const backendProps =
   process.env.NODE_ENV === 'production'
     ? {
@@ -28,7 +31,7 @@ i18n
     fallbackLng: 'en',
     ns: ['common'],
     defaultNS: 'common',
-    lng: getDefaultLang(),
+    // lng: getDefaultLang(),
     load: 'currentOnly',
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
