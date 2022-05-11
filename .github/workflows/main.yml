@@ -15,7 +15,12 @@ jobs:
         with:
           node-version: 12
           persist-credentials: false
+        
       - name: Install and Build
+        env: 
+          NODE_ENV: production
+          REACT_APP_API_ENV: production
+          CI: false
         run: |
           npm install
           npm run-script build

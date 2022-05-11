@@ -28,7 +28,7 @@
   },
   "scripts": {
     "start": "cross-env GIT_VERSION=\"git rev-parse --short HEAD\" craco start",
-    "build": "cross-env CI=false GIT_VERSION=\"git rev-parse --short HEAD\" craco build",
+    "build": "cross-env GIT_VERSION=\"git rev-parse --short HEAD\" craco build",
     "analyze": "cross-env ANALYZED=true craco build",
     "lint": "./node_modules/.bin/eslint --fix --ext .tsx   src",
     "sitemap": "NODE_ENV=development BABEL_ENV=$NODE_ENV npx babel-node --no-babelrc scripts/sitemap-builder.mjs  --presets=@babel/preset-env",
