@@ -66,7 +66,7 @@ module.exports = {
             ],
           }),
         ],
-        [process && process.env.ANALYZER ? new BundleAnalyzerPlugin() : ''],
+        process && process.env.ANALYZED ? [new BundleAnalyzerPlugin()] : [],
       ),
     ],
   },
