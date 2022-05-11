@@ -30,6 +30,7 @@ function App() {
     <Suspense fallback="">
       <TitleProvider>
         <div className="App">
+          <meta name="ui-version" content={process.env.GIT_VERSION} />
           <ConfigProvider locale={LOCALES_MAP[i18n.language]?.antdLocale}>
             <Layout>
               <Switch>
