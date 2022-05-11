@@ -1,0 +1,1 @@
+{"version":3,"sources":["pages/HomePage/index.tsx"],"names":["HomePage"],"mappings":"0FAAA,wBASeA,UALY,WAEzB,OAAO","file":"static/js/homePage.230c4a99.chunk.js","sourcesContent":["import React from 'react';\n\n\n\nconst HomePage: React.FC = () => {\n\n  return <div>home page</div>\n\n};\nexport default HomePage;\n"],"sourceRoot":""}
