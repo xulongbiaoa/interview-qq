@@ -13,7 +13,6 @@ jobs:
         uses: actions/setup-node@v2.1.2
         with:
           node-version: ${{ matrix.node }}
-        with:
           persist-credentials: false
       - name: Install and Build
         run: |
