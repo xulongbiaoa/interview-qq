@@ -16,6 +16,8 @@ import axios from 'axios';
 import Layout from 'component/layout';
 export const context = createContext({})
 
+//deploy 22.5.11
+
 function App() {
   const { i18n } = useTranslation('common');
   useEffect(() => {
