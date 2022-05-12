@@ -12,7 +12,7 @@ import {
 import './styles/main.scss';
 import './App.scss';
 import { LOCALES_MAP } from 'common/config/localeConfig';
-import axios from 'axios';
+import axios from 'common/utils/ajax';
 import Layout from 'component/layout';
 export const context = createContext({})
 
@@ -21,7 +21,7 @@ export const context = createContext({})
 function App() {
   const { i18n } = useTranslation('common');
   useEffect(() => {
-    axios.get('/api/user').then(res => {
+    axios.get('user').then(res => {
       console.log(res)
     })
   }, [])
@@ -30,7 +30,7 @@ function App() {
     <Suspense fallback="">
       <TitleProvider>
         <div className="App">
-          <meta name="ui-version" content={process.env.GIT_VERSION} />
+
           <ConfigProvider locale={LOCALES_MAP[i18n.language]?.antdLocale}>
             <Layout>
               <Switch>

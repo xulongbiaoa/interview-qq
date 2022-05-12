@@ -1,5 +1,5 @@
 const u = navigator.userAgent;
-const browser = {
+export const browser = {
   safari: /Version.+Safari/.test(u),
   chrome: /Chrome/.test(u),
   firefox: /Firefox/.test(u),
@@ -16,4 +16,3 @@ const browser = {
   iPad: u.indexOf('iPad') > -1,
   webApp: u.indexOf('Safari') === -1,
 };
-module.exports = browser;

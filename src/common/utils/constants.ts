@@ -1,8 +1,7 @@
 import { range } from 'lodash';
+
 const isProduction = process.env.NODE_ENV === 'production';
-const baseURL = isProduction
-  ? process.env.PUBLIC_URL || process.env.REACT_APP_API_ROOT
-  : process.env.REACT_APP_PROXY_TARGET;
+const baseURL = process.env.REACT_APP_URL;
 const helpBaseURL = 'https://help.pool.btc.com';
 
 export { isProduction, baseURL, helpBaseURL };
