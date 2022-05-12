@@ -2,7 +2,7 @@ const path = require('path');
 const CracoLessPlugin = require('craco-less');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
-const analyzed = process?.env?.ANALYZED;
+const analyzed = process.env.ANALYZED;
 const {
   when,
   whenDev,
