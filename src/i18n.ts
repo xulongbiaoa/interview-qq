@@ -3,7 +3,7 @@ import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 // import { getDefaultLang } from 'common/utils/lang';
 
-import en from 'i18n/locales/en';
+import enUS from 'i18n/locales/en';
 
 import zhCN from 'i18n/locales/zh-CN';
 
@@ -14,7 +14,7 @@ const backendProps =
       }
     : null;
 
-const supportLanguages = ['en', 'zh-CN'];
+const supportLanguages = ['en-US', 'zh-CN'];
 
 i18n
   // .use(Backend)
@@ -23,15 +23,16 @@ i18n
   // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
     resources: {
-      en,
+      'en-US': enUS,
       'zh-CN': zhCN,
     },
-    debug: false,
+    debug: true,
     supportedLngs: supportLanguages,
-    fallbackLng: 'en',
+    fallbackLng: 'en-US',
     ns: ['common'],
     defaultNS: 'common',
     // lng: getDefaultLang(),
+    // lowerCaseLng: true,
     load: 'currentOnly',
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default

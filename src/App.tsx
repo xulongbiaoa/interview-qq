@@ -4,33 +4,25 @@ import { ConfigProvider } from 'antd';
 import routes from './pages';
 import { TitleProvider } from './context/titleContext';
 import NotFound from './pages/Warning/NotFound';
-import { useTranslation } from 'react-i18next'
-import {
-  Route,
-  Switch,
-} from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { Route, Switch } from 'react-router-dom';
 import './styles/main.scss';
 import './App.scss';
 import { LOCALES_MAP } from 'common/config/localeConfig';
 import axios from 'common/utils/ajax';
 import Layout from 'component/layout';
-export const context = createContext({})
+export const context = createContext({});
 
 //deploy 22.5.12
 
 function App() {
   const { i18n } = useTranslation('common');
-  useEffect(() => {
-    axios.get('user').then(res => {
-      console.log(res)
-    })
-  }, [])
+
 
   return (
     <Suspense fallback="">
       <TitleProvider>
         <div className="App">
-
           <ConfigProvider locale={LOCALES_MAP[i18n.language]?.antdLocale}>
             <Layout>
               <Switch>
@@ -45,11 +37,8 @@ function App() {
                         path={path}
                         render={() => (
                           <React.Suspense fallback={<></>}>
-                            <Component
-                              key={Math.random()}
-                            />
+                            <Component key={Math.random()} />
                           </React.Suspense>
-
                         )}
                       />
                     );
