@@ -20,10 +20,11 @@ module.exports = {
     sourceType: 'module',
   },
 
-  plugins: ['react', '@typescript-eslint'],
+  plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
     // ESLint plugin for prettier formatting
     // https://github.com/prettier/eslint-plugin-prettier
+
     'no-var': 'error',
     'arrow-body-style': ['off'],
     'jsx-a11y/anchor-is-valid': 'off',

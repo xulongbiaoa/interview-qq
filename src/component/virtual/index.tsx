@@ -1,11 +1,5 @@
 import { throttle } from 'lodash';
-import React, {
-  useState,
-  useMemo,
-  useRef,
-  useEffect,
-  useCallback,
-} from 'react';
+import React, { useState, useMemo, useRef, useEffect, useCallback } from 'react';
 import styles from './virturalList.module.scss';
 interface IProps {
   data: any[]; // 渲染的数据
@@ -15,16 +9,16 @@ interface IProps {
   rowHeight: number; // 每一行列表项的高度
   renderNode: (item: any, index: number) => React.ReactElement; // 渲染的列表项DOM节点
 }
-type Container = HTMLDivElement | null;
+
 export const VirtrualList: React.FC<IProps> = ({
   data,
   count,
   size,
   viewSize,
   rowHeight,
-  renderNode,
+  renderNode
 }) => {
-  const containerRef = useRef<Container>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
   const [startIndex, setStartIndex] = useState(0);
 
@@ -50,10 +44,9 @@ export const VirtrualList: React.FC<IProps> = ({
       setStartOffset(offset);
       setStartIndex(index);
     }, 50),
-    [],
+    []
   );
   useEffect(() => {
-
     containerRef.current?.addEventListener('scroll', handleScroll);
 
     return () => {
@@ -69,13 +62,9 @@ export const VirtrualList: React.FC<IProps> = ({
         }}
         className={styles.container}
         style={getContainerHeight}
-
       >
         <div className={styles.phantom} style={phantomHeight}></div>
-        <div
-          className={styles.view}
-          style={{ transform: `translateY(${startOffset}px)` }}
-        >
+        <div className={styles.view} style={{ transform: `translateY(${startOffset}px)` }}>
           {data.slice(startIndex, startIndex + size).map((item, index) => {
             const child = renderNode(item, index);
             return React.cloneElement(child, { style: { height: rowHeight } });

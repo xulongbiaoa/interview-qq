@@ -81,7 +81,7 @@
     "file-loader": "^6.2.0",
     "husky": "^7.0.4",
     "less-loader": "^4.1.0",
-    "prettier": "^2.2.1",
+    "prettier": "2.0.5",
     "react-router-sitemap": "^1.2.0",
     "svg-sprite-loader": "^6.0.11",
     "webpack-bundle-analyzer": "^4.5.0"
