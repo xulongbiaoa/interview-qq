@@ -1,0 +1,23 @@
+  // 外层容器 
+  .container {
+    overflow: auto;
+    position: relative;
+    border: 1px solid #aaa;
+  }
+
+  // 支撑区域
+  .phantom {
+    width: 100%;
+    background: #fff;
+  
+  }
+
+  // 可视区列表项 
+  .view {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+  } 

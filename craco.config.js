@@ -9,7 +9,6 @@ const {
   addBeforeLoader,
   loaderByName,
 } = require('@craco/craco');
-const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   babel: {
@@ -55,21 +54,7 @@ module.exports = {
       return webpackConfig;
     },
 
-    plugins: [
-      ...whenDev(
-        () => [
-          new CopyPlugin({
-            patterns: [
-              {
-                from: 'src/images',
-                to: 'static/images',
-              },
-            ],
-          }),
-        ],
-        analyzed ? [new BundleAnalyzerPlugin()] : [],
-      ),
-    ],
+    plugins: analyzed ? [new BundleAnalyzerPlugin()] : [],
   },
   plugins: [
     {

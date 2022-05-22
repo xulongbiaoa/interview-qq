@@ -1,4 +1,4 @@
-import React, { Suspense, createContext, useEffect } from 'react';
+import React, { Suspense } from 'react';
 
 import { ConfigProvider } from 'antd';
 import routes from './pages';
@@ -9,15 +9,14 @@ import { Route, Switch } from 'react-router-dom';
 import './styles/main.scss';
 import './App.scss';
 import { LOCALES_MAP } from 'common/config/localeConfig';
-import axios from 'common/utils/ajax';
-import Layout from 'component/layout';
-export const context = createContext({});
 
-//deploy 22.5.12
+import Layout from 'component/layout';
+
+
+//deploy 22.5.22
 
 function App() {
   const { i18n } = useTranslation('common');
-
 
   return (
     <Suspense fallback="">
