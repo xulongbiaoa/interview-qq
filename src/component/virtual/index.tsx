@@ -1,6 +1,13 @@
-import React, { useState, useMemo } from 'react';
+import { throttle } from 'lodash';
+import React, {
+  useState,
+  useMemo,
+  useRef,
+  useEffect,
+  useCallback,
+} from 'react';
 import styles from './virturalList.module.scss';
-interface Iprops {
+interface IProps {
   data: any[]; // 渲染的数据
   count: number; // 列表的数量、长度
   size: number; // 可视区渲染的列表项数量(真实DOM节点数量)
@@ -8,7 +15,8 @@ interface Iprops {
   rowHeight: number; // 每一行列表项的高度
   renderNode: (item: any, index: number) => React.ReactElement; // 渲染的列表项DOM节点
 }
-export const VirtrualList: React.FC<Iprops> = ({
+type Container = HTMLDivElement | null;
+export const VirtrualList: React.FC<IProps> = ({
   data,
   count,
   size,
@@ -16,6 +24,8 @@ export const VirtrualList: React.FC<Iprops> = ({
   rowHeight,
   renderNode,
 }) => {
+  const containerRef = useRef<Container>(null);
+
   const [startIndex, setStartIndex] = useState(0);
 
   const [startOffset, setStartOffset] = useState(0); // 渲染区域偏移量
@@ -32,21 +42,34 @@ export const VirtrualList: React.FC<Iprops> = ({
       ? { height: rowHeight * viewSize }
       : { height: rowHeight * data.length, overflow: 'hidden' };
   }, [data, rowHeight, viewSize]);
+  const handleScroll = useCallback(
+    throttle((e: any) => {
+      const scrollTop = e.target.scrollTop;
+      const offset = scrollTop - (scrollTop % rowHeight);
+      const index = Math.floor(scrollTop / rowHeight);
+      setStartOffset(offset);
+      setStartIndex(index);
+    }, 50),
+    [],
+  );
+  useEffect(() => {
 
-  const onScroll = (e: any) => {
-    const scrollTop = e.target.scrollTop;
-    const offset = scrollTop - (scrollTop % rowHeight);
-    const index = Math.floor(scrollTop / rowHeight);
-    setStartOffset(offset);
-    setStartIndex(index);
-  };
+    containerRef.current?.addEventListener('scroll', handleScroll);
+
+    return () => {
+      containerRef.current?.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <>
       <div
+        ref={(ref) => {
+          containerRef.current = ref;
+        }}
         className={styles.container}
         style={getContainerHeight}
-        onScroll={onScroll}
+
       >
         <div className={styles.phantom} style={phantomHeight}></div>
         <div
