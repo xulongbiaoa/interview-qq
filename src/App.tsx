@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Docxtemplater from 'docxtemplater';
 import PizZip from 'pizzip';
-import PizZipUtils from 'pizzip/utils/index.js';
+
 import { saveAs } from 'file-saver';
 import { Button, Input, message, Upload } from 'antd';
 import * as XLSX from 'xlsx';
